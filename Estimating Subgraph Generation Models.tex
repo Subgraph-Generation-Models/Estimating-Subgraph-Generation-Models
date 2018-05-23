@@ -28,7 +28,7 @@ takes@uva.nl}
 \maketitle
 
 \begin{abstract}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Recently, a new network formation model was proposed. The current research looks into a method to estimate the parameters of this model based on the subgraph census.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -37,18 +37,15 @@ Networks, Graphs, ERGM, SUGM, Subgraphs
 
 \section{Introduction}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua~\cite{Chandrasekhar2014}.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua~\cite{Davis1972}.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+The Exponential Random Graph Model (ERGM) is the most frequently used network formation model. However, it suffers from two fundamental flaws~\cite{Chandrasekhar2014}. Firstly, its parameter estimates are inconsistent. Secondly, it does not scale well. Recently, an alternative network formation model was suggested: the Subgraph Generation Model (SUGM)~\cite{Chandrasekhar2014}.
+
+The original article describing SUGM contains two methods to estimate the parameters of the model. The current research suggests a third, more intuitive method based on the subgraph census. In an $k$-subgraph census, a network of $n$ nodes is partitioned into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972}.
 
 \section{Subgraph Generation Model}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+A SUGM is defined by a set of $l$ small subgraphs, such as links, triangles or stars, each with corresponding probabilities. For each subgraph $i$ of $m_{i}$ nodes, the $n$ nodes of the entire network are partitioned into all possible subsets of $m_{i}$ nodes. Then, each of these subsets receives the subgraph $i$ with propability $1-p_{i}$ or remains empty with probability $p_{i}$.
 
-The observed network (left in Fig.~\ref{fig:Figure02}) is the union of all subgraphs (right in Fig.~\ref{fig:Figure02}), where the generated subgraphs may overlap. Multiple subgraphs may incidentally form additional structures such as triangles or squares.
+The observed network (left in Fig.~\ref{fig:Figure02}) is the union of all these subgraphs (right in Fig.~\ref{fig:Figure02}), where the generated subgraphs may overlap. Multiple neighbouring subgraphs may incidentally form additional structures such as triangles or squares.
 
 \begin{table}[h!]
 \def\arraystretch{1.6}
@@ -56,9 +53,9 @@ The observed network (left in Fig.~\ref{fig:Figure02}) is the union of all subgr
 \begin{center}
 \begin{tabular}{|c|c|c|c|c|}
 \hline
-\textbf{}&\multicolumn{4}{|c|}{\textbf{Subgraphs of the Triad Census}} \\
+\textbf{}&\multicolumn{4}{|c|}{\textbf{Subgraphs of the Undirected Triad Census}} \\
 \cline{2-5}
-\textbf{Model}&\includegraphics[scale=.2]{Figure03_1.pdf}&\includegraphics[scale=.2]{Figure03_2.pdf}&\includegraphics[scale=.2]{Figure03_3.pdf}&\includegraphics[scale=.2]{Figure03_4.pdf}\\
+\textbf{Model}&\includegraphics[scale=0.8]{Figure03_1.pdf}&\includegraphics[scale=.8]{Figure03_2.pdf}&\includegraphics[scale=.8]{Figure03_3.pdf}&\includegraphics[scale=.8]{Figure03_4.pdf}\\
 \hline
 Links & $p_{L}^{3}$ & $3 \, p_{L}^{2} \, (1-p_{L})$ & $3 \, p_{L} \, (1-p_{L})^{2}$ & $(1-p_{L})^{3}$ \\
 \hline
@@ -67,7 +64,7 @@ Triangles & $p_{T} \, (p_{T}^{n - 3})^{3}$ & $3 \, p_{T} \, (p_{T}^{n - 3})^{2} 
 Links \& Triangles & $p_{T} \, (p_{L} \, p_{T}^{n - 3})^{3}$ & $3 \, p_{T} \, (p_{L} \, p_{T}^{n - 3})^{2} \, (1 - p_{L} \, p_{T}^{n - 3})$ & $3 \, p_{T} \, (p_{L} \, p_{T}^{n - 3}) \, (1 - p_{L} \, p_{T}^{n - 3})^{2}$ & $(1 - p_{T}) + p_{T} \, (1 - p_{L} \, p_{T}^{n - 3})^{3}$ \\
 \hline
 \end{tabular}
-\label{tab1}
+\label{tab:Table1}
 \end{center}
 \end{table}
 
@@ -77,20 +74,21 @@ Links \& Triangles & $p_{T} \, (p_{L} \, p_{T}^{n - 3})^{3}$ & $3 \, p_{T} \, (p
 \subfloat{\label{fig:Figure02_1.pdf}\includegraphics[scale=.35]{Figure02_1.pdf}}
 \hfill
 \subfloat{\label{fig:Figure02_1.pdf}\includegraphics[scale=.35]{Figure02_2.pdf}}
-\caption{The observed network (left) and the underlying, randomly generated links (red), 2-paths (purple), triangles (green) and 3-stars (yellow).}
+\caption{The observed network (left) is the union (right) of randomly generated links (red), 2-paths (purple), triangles (green) and 3-stars (yellow).}
+\vspace{-5mm}
 \label{fig:Figure02}
 \end{center}
 \end{figure}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Table~\ref{tab:Table1} contains the probabilities of observing any of the possible triads for three different generation models. These probabilities enter into the multinomial probability mass function of~(\ref{eq:Multinomial}), together with the counts of the census, to form the likelihood function. This can be used to estimate the parameters of the model and their confidence intervals.
 \begin{equation}
-f(x_{1}, \cdots, x_{k} ; p_{1}. \cdots, p_{k}) = \frac{\Gamma(\sum_{i} x_{i}+1)}{\prod_{i} \Gamma(x_{i}+1)} \prod_{i=1}^{k} p_{i}^{x_{i}}
+f(x_{1}, \cdots, x_{l} ; p_{1}, \cdots, p_{l}) = \frac{\Gamma(\sum_{i} x_{i}+1)}{\prod_{i} \Gamma(x_{i}+1)} \prod_{i=1}^{l} p_{i}^{x_{i}}
+\label{eq:Multinomial}
 \end{equation}
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 \section{Further Research}
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Future work should extend the list of possible subgraphs, deal with the correlations within the census, develop an \mbox{\textit{R}-package} and apply the model to real-world data.
 
 \bibliographystyle{IEEEtran}
 \bibliography{Bibliography}
