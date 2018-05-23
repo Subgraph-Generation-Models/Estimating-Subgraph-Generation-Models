@@ -80,9 +80,9 @@ Links \& Triangles & $p_{T} \, (p_{L} \, p_{T}^{n - 3})^{3}$ & $3 \, p_{T} \, (p
 \end{center}
 \end{figure}
 
-Table~\ref{tab:Table1} contains the probabilities of observing any of the possible triads for three different generation models. These probabilities enter into the multinomial probability mass function of~(\ref{eq:Multinomial}), together with the counts of the census, to form the likelihood function. This can be used to estimate the parameters of the model and their confidence intervals.
+Table~\ref{tab:Table1} contains the probabilities of observing any of the possible triads for three different generation models. These probabilities $f_{j}$ enter into the multinomial probability mass function of~\eqref{eq:Multinomial}, together with the counts $x_{j}$ of the census, to form the likelihood function. This can be used to estimate the parameters of the model and their confidence intervals.
 \begin{equation}
-f(x_{1}, \cdots, x_{l} ; p_{1}, \cdots, p_{l}) = \frac{\Gamma(\sum_{i} x_{i}+1)}{\prod_{i} \Gamma(x_{i}+1)} \prod_{i=1}^{l} p_{i}^{x_{i}}
+\mathcal{L}(f_{1}, \cdots, f_{l} | x_{1}, \cdots, x_{l}) = \frac{\Gamma(\sum_{j} x_{j}+1)}{\prod_{j} \Gamma(x_{j}+1)} \prod_{j=1}^{l} f_{j}^{x_{j}}
 \label{eq:Multinomial}
 \end{equation}
 
