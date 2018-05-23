@@ -7,19 +7,20 @@
 \usepackage{graphicx}
 \usepackage{textcomp}
 \usepackage{xcolor}
+\usepackage{stfloats}
 \usepackage[caption=false, font=footnotesize]{subfig}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
     T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
-\title{Estimating Subgraph Generation Models}
+\title{Estimating Subgraph Generation Models to Understand Large Network Formation}
 
 \author{\IEEEauthorblockN{1\textsuperscript{st} Laurens Bogaardt}
 \IEEEauthorblockA{\textit{Netherlands eScience Center} \\
 Amsterdam, the Netherlands \\
 l.bogaardt@esciencecenter.nl}
 \and
-\IEEEauthorblockN{2\textsuperscript{nd} Frank Takes}
+\IEEEauthorblockN{2\textsuperscript{nd} Frank W. Takes}
 \IEEEauthorblockA{\textit{University of Amsterdam}\\
 Amsterdam, the Netherlands\\
 takes@uva.nl}
@@ -35,19 +36,15 @@ Recently, a new network formation model was proposed. The current research looks
 Networks, Graphs, ERGM, SUGM, Subgraphs
 \end{IEEEkeywords}
 
-\section{Introduction}
-
 The Exponential Random Graph Model (ERGM) is the most frequently used network formation model. However, it suffers from two fundamental flaws~\cite{Chandrasekhar2014}. Firstly, its parameter estimates are inconsistent. Secondly, it does not scale well. Recently, an alternative network formation model was suggested: the Subgraph Generation Model (SUGM)~\cite{Chandrasekhar2014}.
 
-The original article describing SUGM contains two methods to estimate the parameters of the model. The current research suggests a third, more intuitive method based on the subgraph census. In an $k$-subgraph census, a network of $n$ nodes is partitioned into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972}.
-
-\section{Subgraph Generation Model}
+The original article describing SUGM contains two methods to estimate the parameters of the model. The current research suggests a third, more intuitive method based on the subgraph census. In a $k$-subgraph census, a network of $n$ nodes is partitioned into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972}.
 
 A SUGM is defined by a set of $l$ small subgraphs, such as links, triangles or stars, each with corresponding probabilities. For each subgraph $i$ of $m_{i}$ nodes, the $n$ nodes of the entire network are partitioned into all possible subsets of $m_{i}$ nodes. Then, each of these subsets receives the subgraph $i$ with propability $1-p_{i}$ or remains empty with probability $p_{i}$.
 
 The observed network (left in Fig.~\ref{fig:Figure02}) is the union of all these subgraphs (right in Fig.~\ref{fig:Figure02}), where the generated subgraphs may overlap. Multiple neighbouring subgraphs may incidentally form additional structures such as triangles or squares.
 
-\begin{table}[h!]
+\begin{table*}[b]
 \def\arraystretch{1.6}
 \caption{Probabilities in the Subgraph Census}
 \begin{center}
@@ -66,7 +63,7 @@ Links \& Triangles & $p_{T} \, (p_{L} \, p_{T}^{n - 3})^{3}$ & $3 \, p_{T} \, (p
 \end{tabular}
 \label{tab:Table1}
 \end{center}
-\end{table}
+\end{table*}
 
 \begin{figure}[htbp]
 \begin{center}
@@ -86,10 +83,9 @@ Table~\ref{tab:Table1} contains the probabilities of observing any of the possib
 \label{eq:Multinomial}
 \end{equation}
 
-\section{Further Research}
-
 Future work should extend the list of possible subgraphs, deal with the correlations within the census, develop an \mbox{\textit{R}-package} and apply the model to real-world data.
 
+\newpage
 \bibliographystyle{IEEEtran}
 \bibliography{Bibliography}
 
