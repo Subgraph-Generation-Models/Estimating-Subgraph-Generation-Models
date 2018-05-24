@@ -36,13 +36,7 @@ Recently, a new network formation model was proposed. The current research looks
 Networks, Graphs, ERGM, SUGM, Subgraphs
 \end{IEEEkeywords}
 
-%- given that it is an eScience conference, I think it would be good to balance method and domain a bit better, and add a sentence or 3 about the context of all this:
-% - why network science needs these models
-% - what social scientists in particular use these models for
-% - what researchers in corporate networks use these models for (1 example)
-%- make explicit what the main problem is that you are trying to solve, in an eScience context. I think something along the lines of: in computational social science we typically have large network datasets of thousands or millions of nodes; methods to model the formation of these networks only work for small graphs, attempts at scaling these models have been proposed, but are not available as software packages; we develop a methodology for such as package.
-
-Social scientists often aim to understand the incentives and mechanisms which result in large scale structures. Key to this is network formation analysis. However, large datasets are not uncommon, leading to a computational challenge. For example, political scientists interested in global networks of corporate control have to analyse millions of companies.
+Social scientists often aim to understand the incentives and mechanisms which result in large scale structures. Key to this is network formation analysis. However, large datasets are not uncommon, leading to a computational challenge. For example, political scientists interested in global networks of corporate control may analyse millions of companies.
 
 \begin{table*}[b]
 \def\arraystretch{1.5}
@@ -65,9 +59,9 @@ Links \& Triangles & $p_{T} \, (p_{L} \, p_{T}^{n - 3})^{3}$ & $3 \, p_{T} \, (p
 \end{center}
 \end{table*}
 
-The Exponential Random Graph Model (ERGM) is a frequently used network formation model. However, it suffers from two fundamental flaws. Firstly, its parameter estimates are inconsistent~\cite{Shalizi2013,Chatterjee2013}. Secondly, it does not scale well~\cite{Bhamidi2011}. Recently, an alternative network formation model was suggested: the Subgraph Generation Model (SUGM)~\cite{Chandrasekhar2014,Chandrasekhar2015,Chandrasekhar2016}.
+The Exponential Random Graph Model (ERGM) is a frequently used network formation model. Unfortunately, it suffers from two fundamental flaws. Firstly, its parameter estimates are inconsistent~\cite{Shalizi2013,Chatterjee2013}. Secondly, it does not scale well~\cite{Bhamidi2011}. Recently, an alternative network formation model was suggested: the Subgraph Generation Model (SUGM)~\cite{Chandrasekhar2014,Chandrasekhar2015,Chandrasekhar2016}.
 
-A SUGM is defined by a set of $l$ small subgraphs, such as links, triangles or stars, each with corresponding probabilities. For each subgraph $i$ of $m_{i}$ nodes, the $n$ nodes of the entire network are partitioned into all possible subsets of $m_{i}$ nodes. Then, each of these subsets receives the subgraph $i$ with propability $1-p_{i}$ or remains empty with probability $p_{i}$.
+A SUGM is defined by a set of $l$ small subgraphs, such as links, triangles or stars, each with corresponding probabilities. For each subgraph $i$ of $m_{i}$ nodes, the $n$ nodes of the entire network are grouped into all possible subsets of $m_{i}$ nodes. Then, each of these subsets receives the subgraph $i$ with probability $1-p_{i}$ or remains empty with probability $p_{i}$.
 
 \begin{figure}[htbp]
 \begin{center}
@@ -84,7 +78,7 @@ A SUGM is defined by a set of $l$ small subgraphs, such as links, triangles or s
 
 The observed network, left in Fig.~\ref{fig:Figure02}, is the union of all these subgraphs, right in Fig.~\ref{fig:Figure02}, where the generated subgraphs may overlap. Multiple neighbouring subgraphs may incidentally form additional structures such as triangles or squares.
 
-The original articles describing SUGM contain two methods to estimate the parameters of the model. The current research suggests a third, more intuitive method based on the subgraph census. In a $k$-subgraph census, a network of $n$ nodes is partitioned into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972,Holland1970,Holland1976}.
+The original articles describing SUGM contain two methods to estimate the parameters of the model. The current research suggests a third, more intuitive method based on the subgraph census. In a $k$-subgraph census, a network of $n$ nodes is grouped into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972,Holland1970,Holland1976}.
 
 Table~\ref{tab:Table1} contains the probabilities of observing any of the possible triads for three different generation models. In general, each of the $r$ counts of the census $x_{j}$, together with the probability functions $f_{j}(\hat{p}_{1},\cdots,\hat{p}_{l})$, enter into the multinomial probability mass function of~\eqref{eq:Multinomial} to form the likelihood function. This can be used to estimate the parameters of the model and their confidence intervals.
 \begin{equation}
