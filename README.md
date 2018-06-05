@@ -1,2 +1,2 @@
-# Estimating-Subgraph-Generation-Models
-The structure of a graph (network) can be described using the Subgraph Generation Model (SUGM). This article describes how to estimate its parameters.
+# Estimating Subgraph Generation Models to Understand Large Network Formation
+Recently, a new network formation model was proposed. The current research looks into a method to estimate the parameters of this model based on the subgraph census.
