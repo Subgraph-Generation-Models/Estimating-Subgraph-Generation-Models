@@ -71,6 +71,7 @@
 \usepackage{stfloats}
 \usepackage[caption=false, font=footnotesize]{subfig}
 \usepackage{arydshln}
+\usepackage{slashbox}
 
 \title{{\fontsize{86}{60}\selectfont Estimating Subgraph Generation Models to Understand Large Network Formation}} % Poster title
 \author{\parbox{.18\textwidth}{\hfill \strut Laurens Bogaardt\hspace{8mm}\strut} \parbox{.18\textwidth}{\strut\hspace{6mm} Frank W. Takes\strut}}
@@ -133,7 +134,7 @@ The observed network, depicted in Fig.~\ref{fig:Figure01}, is the union of all t
 
 \begin{figure}
 \includegraphics[width=0.8\linewidth]{../Figure02_1.pdf}
-\caption{The observed network is the union of randomly generated subgraph.}
+\caption{\hspace{3mm}The observed network is the union of randomly generated subgraph.}
 \label{fig:Figure01}
 \end{figure}
 
@@ -159,7 +160,7 @@ The table below contains the probabilities of observing any of the possible tria
 
 \begin{figure}
 \includegraphics[width=0.8\linewidth]{../Figure02_2.pdf}
-\caption{Randomly generated links (red), 2-paths (purple), triangles (green) and 3-stars (yellow).}
+\caption{\hspace{3mm}Randomly generated links (red), 2-paths (purple), triangles (green) and 3-stars (yellow).}
 \label{fig:Figure02}
 \end{figure}
 
@@ -177,7 +178,7 @@ The table below contains the probabilities of observing any of the possible tria
 \setlength\tabcolsep{12mm}
 \begin{center}
 \begin{tabular}{c|c:c:c:c}
-\textbf{Model}&\includegraphics[scale=1.5]{../Figure03_1.pdf}&\includegraphics[scale=1.5]{../Figure03_2.pdf}&\includegraphics[scale=1.5]{../Figure03_3.pdf}&\includegraphics[scale=1.5]{../Figure03_4.pdf}\\
+\backslashbox{\textbf{Model}}{\textbf{Types}}&\includegraphics[  scale=1.5]{../Figure03_1.pdf}&\includegraphics[  scale=1.5]{../Figure03_2.pdf}&\includegraphics[  scale=1.5]{../Figure03_3.pdf}&\includegraphics[  scale=1.5]{../Figure03_4.pdf}\\
 \hline
 Links & $p_{L}^{3}$ & $3 \, p_{L}^{2} \, (1-p_{L})$ & $3 \, p_{L} \, (1-p_{L})^{2}$ & $(1-p_{L})^{3}$ \\
 \hdashline
@@ -226,6 +227,7 @@ Future work should extend the list of possible subgraphs, deal with the correlat
 \end{alertblock}
 
 \centering \includegraphics[height=40mm]{NWO.jpg} \hspace{24mm} \includegraphics[height=40mm]{Surf.png}
+\\[3mm]
 l.bogaardt@esciencecenter.nl \, | \, takes@uva.nl
 
 \end{column} % End of the third column
