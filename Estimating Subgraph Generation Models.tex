@@ -10,7 +10,7 @@
 \usepackage{stfloats}
 \usepackage[caption=false, font=footnotesize]{subfig}
 \def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
-    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
 \begin{document}
 
 \title{Estimating Subgraph Generation Models to Understand Large Network Formation}
@@ -29,7 +29,7 @@ takes@uva.nl}
 \maketitle
 
 \begin{abstract}
-Recently, a new network formation model was proposed. The current research looks into a method to estimate the parameters of this model based on the subgraph census.
+Recently, a new network formation model was proposed: SUGM. Our research looks into a method to estimate the parameters of this model based on the subgraph census.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -65,13 +65,13 @@ A SUGM is defined by a set of $l$ small subgraphs, such as links, triangles or s
 
 \begin{figure}[htbp]
 \begin{center}
-\vspace{-3mm}
+\vspace{-4mm}
 \hspace{1mm}
 \subfloat{\label{fig:Figure02_1.pdf}\includegraphics[scale=.33]{Figure02_1.pdf}}
 \hfill
 \subfloat{\label{fig:Figure02_1.pdf}\includegraphics[scale=.33]{Figure02_2.pdf}}
 \hspace{1mm}
-\caption{The observed network (left) is the union (right) of randomly generated links (red), 2-paths (purple), triangles (green) and 3-stars (yellow).}
+\caption{The observed network (left) is the union (right) of randomly generated links (red), triangles (green) and stars (yellow).}
 \vspace{-5mm}
 \label{fig:Figure02}
 \end{center}
@@ -79,7 +79,7 @@ A SUGM is defined by a set of $l$ small subgraphs, such as links, triangles or s
 
 The observed network, left in Fig.~\ref{fig:Figure02}, is the union of all these subgraphs, right in Fig.~\ref{fig:Figure02}, where the generated subgraphs may overlap. Multiple neighbouring subgraphs may incidentally form additional structures such as triangles or squares.
 
-The original articles describing SUGM contain two methods to estimate the parameters of the model. The current research suggests a third, more intuitive method based on the subgraph census. In a $k$-subgraph census, a network of $n$ nodes is grouped into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972,Holland1970,Holland1976}.
+The original articles describing SUGM contain two methods to estimate the parameters of the model. Our work suggests a third, more intuitive method based on the subgraph census. In a $k$-subgraph census, a network of $n$ nodes is grouped into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972,Holland1970,Holland1976}. This counting can be achieved in polynomial time.
 
 Table~\ref{tab:Table1} contains the probabilities of observing any of the possible triads for three different generation models. In general, each of the $r$ counts of the census $x_{j}$, together with the probability functions $f_{j}(\hat{p}_{1},\cdots,\hat{p}_{l})$, enter into the multinomial probability mass function of~\eqref{eq:Multinomial} to form the likelihood function. This can be used to estimate the parameters of the model and their confidence intervals.
 \begin{equation}

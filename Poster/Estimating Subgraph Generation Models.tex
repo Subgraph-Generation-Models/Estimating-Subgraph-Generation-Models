@@ -81,7 +81,7 @@
 \parbox{.16\textwidth}{\strut\hspace{8mm} University of Amsterdam\strut}
 \parbox{.32\textwidth}{\vspace{-32mm} \centering \includegraphics[height=4cm]{UvA.png}}\vspace{-6mm}
 }
-\usebackgroundtemplate{\includegraphics[height=\paperheight, width=\paperwidth]{NLeScBackground.jpg}}
+\usebackgroundtemplate{\tikz\node[opacity=0.7]{\includegraphics[height=\paperheight, width=\paperwidth]{NLeScBackground.jpg}};}
 
 \begin{document}
 
@@ -99,7 +99,7 @@
 
 \begin{alertblock}{Abstract}
 
-Recently, a new network formation model was proposed. The current research looks into a method to estimate the parameters of this model based on the subgraph census.\\
+Recently, a new network formation model was proposed: SUGM. Our research looks into a method to estimate the parameters of this model based on the subgraph census.\\
 
 \end{alertblock}
 
@@ -149,9 +149,9 @@ The observed network, depicted in Fig.~\ref{fig:Figure01}, is the union of all t
 
 \begin{block}{Estimation}
 
-The original articles describing SUGM contain two methods to estimate the parameters of the model. The current research suggests a third, more intuitive method based on the subgraph census. In a $k$-subgraph census, a network of $n$ nodes is grouped into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972,Holland1970,Holland1976}.
+The original articles describing SUGM contain two methods to estimate the parameters of the model. Our work suggests a third, more intuitive method based on the subgraph census. In a $k$-subgraph census, a network of $n$ nodes is grouped into all possible subsets of $k$ nodes, which are then tallied according to their isomorphism class~\cite{Davis1972,Holland1970,Holland1976}.
 
-The table below contains the probabilities of observing any of the possible triads for three different generation models. In general, each of the $r$ counts of the census $x_{j}$, together with the probability functions $f_{j}(\hat{p}_{1},\cdots,\hat{p}_{l})$, enter into the multinomial ...
+The table below contains the probabilities of observing any of the possible triads for three different generation models. In general, each of the $r$ counts of the census $x_{j}$, together with the probability functions $f_{j}(\hat{p}_{1},\cdots,\hat{p}_{l})$, enter into the multinomial probability mass function of~\eqref{eq:Multinomial} to form ...
 
 \end{block}
 
@@ -160,7 +160,7 @@ The table below contains the probabilities of observing any of the possible tria
 
 \begin{figure}
 \includegraphics[width=0.8\linewidth]{../Figure02_2.pdf}
-\caption{\hspace{3mm}Randomly generated links (red), 2-paths (purple), triangles (green) and 3-stars (yellow).}
+\caption{\hspace{3mm}Randomly generated links (red), triangles (green) and stars (yellow).}
 \label{fig:Figure02}
 \end{figure}
 
@@ -178,7 +178,7 @@ The table below contains the probabilities of observing any of the possible tria
 \setlength\tabcolsep{12mm}
 \begin{center}
 \begin{tabular}{c|c:c:c:c}
-\backslashbox{\textbf{Model}}{\textbf{Types}}&\includegraphics[  scale=1.5]{../Figure03_1.pdf}&\includegraphics[  scale=1.5]{../Figure03_2.pdf}&\includegraphics[  scale=1.5]{../Figure03_3.pdf}&\includegraphics[  scale=1.5]{../Figure03_4.pdf}\\
+\backslashbox{\textbf{Model}}{\textbf{Types}}&\raisebox{-.25\height}{\includegraphics[scale=1.7]{../Figure03_1.pdf}}&\raisebox{-.25\height}{\includegraphics[scale=1.7]{../Figure03_2.pdf}}&\raisebox{-.25\height}{\includegraphics[scale=1.7]{../Figure03_3.pdf}}&\raisebox{-.25\height}{\includegraphics[scale=1.7]{../Figure03_4.pdf}}\\
 \hline
 Links & $p_{L}^{3}$ & $3 \, p_{L}^{2} \, (1-p_{L})$ & $3 \, p_{L} \, (1-p_{L})^{2}$ & $(1-p_{L})^{3}$ \\
 \hdashline
@@ -201,7 +201,7 @@ Links \& Triangles & $p_{T} \, (p_{L} \, p_{T}^{n - 3})^{3}$ & $3 \, p_{T} \, (p
 \setbeamertemplate{block begin}[notitle]
 \begin{block}
 
-... probability mass function of~\eqref{eq:Multinomial} to form the likelihood function. This can be used to estimate the parameters of the model and their confidence intervals.
+... the likelihood function. This can be used to estimate the parameters of the model and their confidence intervals.
 \begin{equation}
 \mathcal{L}(f_{1}, \cdots, f_{r} | x_{1}, \cdots, x_{r}) \sim \prod_{j=1}^{r} f_{j}^{x_{j}}
 \label{eq:Multinomial}
@@ -227,7 +227,7 @@ Future work should extend the list of possible subgraphs, deal with the correlat
 \end{alertblock}
 
 \centering \includegraphics[height=40mm]{NWO.jpg} \hspace{24mm} \includegraphics[height=40mm]{Surf.png}
-\\[3mm]
+\\[2mm]
 l.bogaardt@esciencecenter.nl \, | \, takes@uva.nl
 
 \end{column} % End of the third column
